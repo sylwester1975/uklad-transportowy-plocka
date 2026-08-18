@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Postulowana droga ekspresowa S60 – ruch transportowy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 60px;
+            box-sizing: border-box;
+        }
+        
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #24292e;
+            margin: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+            border: 1px solid #24292e;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .btn-copy { background-color: white; color: #24292e; }
+        .btn-copy:hover { background-color: #f6f8fa; }
+
+        .btn-download { background-color: #24292e; color: white; }
+        .btn-download:hover { background-color: #444d56; }
+
+        #hint-bar {
+            text-align: center;
+            font-size: 12px;
+            color: #444d56;
+            padding: 8px;
+            background: #f6f8fa;
+            border-bottom: 1px solid #eaeaea;
+            user-select: none;
+        }
+
+        /* Zmiana tutaj: użyliśmy Flexboxa do idealnego środkowania */
+        .map-wrapper {
+            width: 100%;
+            height: calc(100vh - 60px);
+            overflow: auto;
+            background-color: white;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            cursor: zoom-in;
+            margin: auto; /* Zapewnia marginesy wokół dużego obiektu */
+        }
+
+        img.zoomed {
+            max-width: none;
+            cursor: zoom-out;
+            flex-shrink: 0; /* Zapobiega zniekształceniom obrazu w kontenerze flex */
+        }
+
+        @media (max-width: 650px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 15px;
+                gap: 10px;
+                height: auto;
+            }
+            .map-wrapper {
+                height: calc(100vh - 100px);
+            }
+            .title { font-size: 13px; }
+            .button-group { width: 100%; }
+            .btn { flex: 1; justify-content: center; padding: 7px 10px; font-size: 12px; }
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(36, 41, 46, 0.95);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="title">Postulowana droga ekspresowa S60 – ruch transportowy</div>
+        <div class="button-group">
+            <button onclick="copyLink()" class="btn btn-copy">
+                <span>🔗</span> Kopiuj link
+            </button>
+            <a href="droga-ekspresowa-s60-ruch-transportowy.png" download="droga-ekspresowa-s60-ruch-transportowy.png" class="btn btn-download">
+                Pobierz grafikę (PNG)
+            </a>
+        </div>
+    </div>
+
+    <div id="hint-bar">💡 Kliknij grafikę, aby ją powiększyć</div>
+
+    <div class="map-wrapper" id="mapWrapper">
+        <img src="droga-ekspresowa-s60-ruch-transportowy.png" 
+             id="mapaS10" 
+             onclick="toggleZoom(event)" 
+             alt="Postulowana droga ekspresowa S60 – ruch transportowy" 
+             decoding="async">
+    </div>
+
+    <div id="toast">Link skopiowany do schowka!</div>
+
+    <script>
+        function toggleZoom(event) {
+            const hint = document.getElementById('hint-bar');
+            if (hint) { hint.style.display = 'none'; }
+
+            const img = document.getElementById('mapaS10');
+            const wrapper = document.getElementById('mapWrapper');
+            const isZoomingIn = !img.classList.contains('zoomed');
+
+            if (isZoomingIn) {
+                // Wyliczamy pozycję kliknięcia przed zmianą klasy
+                const rect = img.getBoundingClientRect();
+                const xPercent = (event.clientX - rect.left) / rect.width;
+                const yPercent = (event.clientY - rect.top) / rect.height;
+
+                img.classList.add('zoomed');
+
+                // Dynamicznie zmieniamy pozycjonowanie flex, aby przewijanie działało poprawnie od lewego-górnego rogu
+                wrapper.style.justifyContent = 'flex-start';
+                wrapper.style.alignItems = 'flex-start';
+
+                requestAnimationFrame(() => {
+                    wrapper.scrollLeft = (xPercent * img.naturalWidth) - (window.innerWidth / 2);
+                    wrapper.scrollTop = (yPercent * img.naturalHeight) - (window.innerHeight / 2);
+                });
+            } else {
+                img.classList.remove('zoomed');
+                // Przywracamy idealne centrowanie dla widoku ogólnego
+                wrapper.style.justifyContent = 'center';
+                wrapper.style.alignItems = 'center';
+                wrapper.scrollLeft = 0;
+                wrapper.scrollTop = 0;
+            }
+        }
+
+        function copyLink() {
+            const cleanLink = window.location.origin + window.location.pathname;
+            navigator.clipboard.writeText(cleanLink).then(() => {
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.opacity = '1'; }, 10);
+                setTimeout(() => { 
+                    toast.style.opacity = '0';
+                    setTimeout(() => { toast.style.display = 'none'; }, 300);
+                }, 2000);
+            }).catch(() => {
+                alert("Link: " + cleanLink);
+            });
+        }
+    </script>
+</body>
+<style>html{
+ color:darkviolet;
+ font-size:25px;
+ font-weight:600;
+}
+</style><script>/*Here write your javascript code*/</script></html>
