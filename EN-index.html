@@ -400,7 +400,7 @@ clear: both !important;
 5. REGUŁY DRUKU I&nbsp;EKSPORTU DO PLIKU PDF
 ========================================================================== */
 /* 1. TUTAJ WKLEJASZ (POZA KLAMRĄ @MEDIA PRINT) */
-p a, li a {
+p a, li a, td a {
     color: #1a365d !important;         /* Twój prestiżowy granat */
     text-decoration: none !important;  /* USUNIĘCIE STAŁEGO PODKREŚLENIA W SPOCZYNKU */
     font-weight: 500;
@@ -408,7 +408,7 @@ p a, li a {
 }
 
 /* EFEKT HOVER - Podkreślenie i rozjaśnienie pojawia się tylko po najechaniu myszką */
-p a:hover, li a:hover {
+p a:hover, li a:hover, td a:hover {
     color: #2563eb !important;         /* Podświetlenie do żywego błękitu */
     text-decoration: underline !important; /* Linia wysuwa się tylko podczas interakcji */
     text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
@@ -709,7 +709,7 @@ a:hover {
         <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
             📄 Download Master Plan as PDF
         </button>
-        <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #4a5568; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+        <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
             🔗 Copy Link to Master Plan
         </button>
         
@@ -759,7 +759,7 @@ a:hover {
         <div class="map-caption"><strong style="font-style: normal;">Figure 1.</strong> <i>General concept of the integrated transport system layout in Płock</i></div>
         <div class="btn-download-container">
             <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/plock-transport-infrastructure.html" class="btn-download-png" target="_blank">📥 Open image in original size</a>
-            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=en&gl=pl" class="btn-original" style="background-color: #4a5568; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">🗺️ See Płock area in Google Maps</a>
+            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=en&gl=pl" class="btn-original" style="background-color: #27374d; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">🗺️ See Płock area in Google Maps</a>
         </div>
     </div>
 
@@ -947,10 +947,10 @@ a:hover {
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th>Infrastructure Pillar</th>
-                    <th>Key Components</th>
-                    <th style="text-align: center;">Estimated CapEx (PLN billion)</th>
-                    <th>Primary Financing Sources</th>
+                    <th style="color: #1a365d;">Infrastructure Pillar</th>
+                    <th style="color: #1a365d;">Key Components</th>
+                    <th style="color: #1a365d; text-align: center;">Estimated CapEx (PLN billion)</th>
+                    <th style="color: #1a365d;">Primary Financing Sources</th> 
                 </tr>
             </thead>
             <tbody>

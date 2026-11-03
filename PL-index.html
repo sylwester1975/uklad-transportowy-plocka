@@ -399,7 +399,7 @@ clear: both !important;
 5. REGUŁY DRUKU I&nbsp;EKSPORTU DO PLIKU PDF
 ========================================================================== */
 /* 1. TUTAJ WKLEJASZ (POZA KLAMRĄ @MEDIA PRINT) */
-p a, li a {
+p a, li a, td a {
     color: #1a365d !important;         /* Twój prestiżowy granat */
     text-decoration: none !important;  /* USUNIĘCIE STAŁEGO PODKREŚLENIA W SPOCZYNKU */
     font-weight: 500;
@@ -407,7 +407,7 @@ p a, li a {
 }
 
 /* EFEKT HOVER - Podkreślenie i rozjaśnienie pojawia się tylko po najechaniu myszką */
-p a:hover, li a:hover {
+p a:hover, li a:hover, td a:hover {
     color: #2563eb !important;         /* Podświetlenie do żywego błękitu */
     text-decoration: underline !important; /* Linia wysuwa się tylko podczas interakcji */
     text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
@@ -716,19 +716,21 @@ a:hover {
         </ul>
     </div>
 
-    <!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY -->
-    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
-        <!-- Przycisk PDF -->
-        <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            📄 Pobierz Masterplan w&nbsp;formacie PDF
-        </button>
-        <!-- Przycisk Kopiowania Linku -->
-        <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            🔗 Kopiuj link do Masterplanu
-        </button>
+      <!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY (Zabezpieczony przed rozciąganiem) -->
+<div style="display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
+    
+    <!-- Przycisk PDF (Dopasowany optycznie) -->
+    <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
+        📄 Pobierz Masterplan jako PDF
+    </button>
+    
+    <!-- Przycisk Kopiowania Linku -->
+    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
+        🔗 Kopiuj link do Masterplanu
+    </button>
         
-<!-- Wersja Angielska po prawej -->
-    <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none; margin-left: 5px;">
+    <!-- Wersja Angielska po prawej (Poprawiony xmlns!) -->
+    <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
         <svg xmlns="http://w3.org" viewBox="0 0 50 25" height="38" style="border-radius: 3px; border: 1px solid #cbd5e0; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             <clipPath id="uk-clip"><rect width="50" height="25"/></clipPath>
             <g clip-path="url(#uk-clip)">
@@ -739,15 +741,15 @@ a:hover {
                 <path d="M25 0v25M0 12.5h50" stroke="#c8102e" stroke-width="6"/>
             </g>
         </svg>
-    </a> <!-- To jest tag kończący link flagi -->
+    </a>
 </div>
 
-    <!-- Ukryty element powiadomienia o skopiowaniu -->
+    <!-- POPRAWIONY CIEMNY PROSTOKĄT (Pływający w rogu ekranu z płynną animacją) -->
     <div id="toast-share" style="display: none;">🔗 Link do Masterplanu został skopiowany do schowka!</div>
-
+    
     <hr>
 
-   <h2 id="wstep" style="margin-bottom: 33px;">1. WSTĘP I&nbsp;ISTOTA PROBLEMÓW&nbsp;STRATEGICZNYCH</h2></div>
+    <h2 id="wstep" style="margin-bottom: 33px;">1. WSTĘP I&nbsp;ISTOTA PROBLEMÓW&nbsp;STRATEGICZNYCH</h2></div>
 
     <p>Współczesne wyzwania geopolityczne, narastające zagrożenia hybrydowe oraz wymogi mobilności wojskowej (<i>military mobility</i>) NATO wymuszają natychmiastową weryfikację mapy transportowej Polski w&nbsp;rejonie jej najważniejszego węzła&nbsp;rafineryjno-petrochemicznego i&nbsp;wodorowego – Płocka. Nadrzędnym celem państwa musi być zapewnienie ciągłości operacyjnej i&nbsp;obronnej płockich zakładów, które stanowią serce zaopatrzenia paliwowego kraju. Pomimo tak fundamentalnej roli, wieloletnie, systemowe zaniedbania doprowadziły do sytuacji, w&nbsp;której miasto pozostaje komunikacyjną wyspą.</p>
 
@@ -1233,7 +1235,7 @@ a:hover {
     <!-- Przycisk Przewiń do góry - płynnie przewija i wymusza czysty adres główny w przeglądarce -->
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
-    <script>
+        <script>
         // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
         function copyCurrentLink() {
             const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
@@ -1265,21 +1267,21 @@ a:hover {
             if (lightbox && lightboxImg) {
                 lightboxImg.src = element.src;
                 lightbox.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Blokada przewijania tła&nbsp;            }
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             if (lightbox) {
                 lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Przywrócenie przewijania tła&nbsp;            }
+                document.body.style.overflow = 'auto';
+            }
         }
 
         // Zamknięcie Lightboxa klawiszem Escape
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            }
+            if (event.key === 'Escape') { closeLightbox(); }
         });
     </script>
 </body>
