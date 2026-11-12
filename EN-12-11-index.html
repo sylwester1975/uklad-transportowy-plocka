@@ -61,7 +61,7 @@
         h4 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #333333;
-            font-weight: 700; /* Zapienie słowa 'bold' twardą wartością liczbową */
+            font-weight: 700; /* Zastąpienie słowa 'bold' twardą wartością liczbową */
             font-size: 1.15rem;
             margin-top: 25px;
             margin-bottom: 15px;
@@ -108,7 +108,7 @@
             margin-bottom: 0 !important;
         }
         .highlight-box strong {
-            color: #1a365d; !important;
+            color: #1a365d !important;
         }
         .toc-box {
             background-color: #f7fafc;
@@ -148,9 +148,9 @@
             transition: color 0.2s ease, text-decoration-color 0.2s ease;
         }
         .toc-box a:hover {
-            color: #1a365d !important;
+            color: #2563eb !important;
             text-decoration: underline !important;
-            text-decoration-color: #1a365d !important;
+            text-decoration-color: #2563eb !important;
         }
         .toc-box ul {
             list-style-type: disc !important;
@@ -207,33 +207,37 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #27374d; /* Systemowy grafit */
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             font-size: 0.85rem;
             font-weight: bold;
             padding: 8px 16px;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
-        }
-        .btn-download-png:hover {
-            background-color: #333333;
         }
         .btn-original {
             display: inline-block;
-            background-color: #1a365d;
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             padding: 8px 16px;
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
         }
-        .btn-original:hover {
-            background-color: #27374d;
+        .btn-original:hover, .btn-download-png:hover {
+            background-color: #2563eb !important; /* Królewski błękit po najechaniu myszką */
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        .btn-original:focus-visible, .btn-download-png:focus-visible {
+            outline: 3px solid #1a365d !important;
+            outline-offset: 3px !important;
         }
         .lightbox {
             display: none;
@@ -263,8 +267,7 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
-        html {
+html {
     scroll-behavior: smooth;
 }
 .btn-to-top {
@@ -286,11 +289,10 @@
     z-index: 999;
 }
 .btn-to-top:hover {
-    background-color: #2b6cb0;
+    background-color: #2563eb;
     color: #f8f9fa !important; /* ZMIANA: Strzałka zachowuje kolor tła strony po najechaniu */
     transform: scale(1.05);
 }
-
         /* ==========================================================================
            4. STRUKTURY SPECJALISTYCZNE I LISTY (EKRAN)
            ========================================================================== */
@@ -330,16 +332,16 @@
             width: 100%;
             text-align: left;
             font-family: inherit;
-            border: 2px solid #27374d;
+            border: 2px solid #1a365d;
         }
         .custom-table th, .custom-table td {
-            border: 1px solid #27374d;
+            border: 1px solid #1a365d;
             padding: 12px 10px;
             line-height: 1.5;
         }
         .custom-table th {
             background-color: #f2f2f2;
-            color: #27374d;
+            color: #1a365d;
             font-weight: bold;
         }
         .custom-table td strong {
@@ -686,18 +688,18 @@ ul.bibliografia li:target {
         </div>        
         <div class="toc-title" style="margin-top: 25px; border-top: 1px dashed #cbd5e0; padding-top: 15px; font-weight: bold; color: #4a5568; font-size: 1.1rem;">LIST OF FIGURES</div>
         <ul style="list-style-type: disc !important; padding-left: 20px !important; margin-top: 15px; margin-bottom: 0;">
-            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#map-1" style="color: #4a5568; text-decoration: none;">🗺️ <strong>Figure 1.</strong> General concept of the integrated transport system layout in Płock</a></li>
-            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#map-2" style="color: #4a5568; text-decoration: none;">🗺️ <strong>Figure 2.</strong> Proposed S60 Express Road corridor</a></li>
-            <li style="margin-bottom: 0; list-style-type: disc !important; text-align: left;"><a href="#map-3" style="color: #4a5568; text-decoration: none;">🗺️ <strong>Figure 3.</strong> North–South Railway Strategic Axis</a></li>
+            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#map-1" style="color: #4a5568; text-decoration: none;"> <strong>Figure 1.</strong> General concept of the integrated transport system layout in Płock</a></li>
+            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#map-2" style="color: #4a5568; text-decoration: none;"> <strong>Figure 2.</strong> Proposed S60 Express Road corridor</a></li>
+            <li style="margin-bottom: 0; list-style-type: disc !important; text-align: left;"><a href="#map-3" style="color: #4a5568; text-decoration: none;"> <strong>Figure 3.</strong> North–South Railway Strategic Axis</a></li>
         </ul>
     </div>
 
     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
         <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            📄 Download Master Plan as PDF
+             Download Master Plan as PDF
         </button>
         <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            🔗 Copy Link to Master Plan
+             Copy Link to Master Plan
         </button>
         
          <!-- Wersja Polska po prawej -->
@@ -710,7 +712,7 @@ ul.bibliografia li:target {
 </div>
     
     <!-- Ukryty element powiadomienia o skopiowaniu -->
-    <div id="toast-share" style="display: none;">🔗 Link to the master plan has been copied to clipboard!</div>
+    <div id="toast-share" style="display: none;"> Link to the master plan has been copied to clipboard!</div>
     
     <hr>
 
@@ -745,8 +747,8 @@ ul.bibliografia li:target {
         <img src="plock-transport-infrastructure.png" alt="General concept of the integrated transport system layout in Płock" onclick="openLightbox(this)">
         <div class="map-caption"><strong style="font-style: normal;">Figure 1.</strong> <i>General concept of the integrated transport system layout in Płock</i></div>
         <div class="btn-download-container">
-            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/plock-transport-infrastructure.html" class="btn-download-png" target="_blank">📥 Open image in original size</a>
-            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=en&gl=pl" class="btn-original" style="background-color: #27374d; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">🗺️ See Płock area in Google Maps</a>
+            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/plock-transport-infrastructure.html" class="btn-download-png" target="_blank">Open image in original size</a>
+            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=en&gl=pl" class="btn-original" style="background-color: #1a365d; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">See Płock area in Google Maps</a>
         </div>
     </div>
 
@@ -812,7 +814,7 @@ ul.bibliografia li:target {
         <img src="expressway-s60.png" alt="Proposed S60 Express Road corridor" onclick="openLightbox(this)">
         <div class="map-caption"><strong style="font-style: normal;">Figure 2.</strong> <i>Proposed S60 Express Road corridor</i></div>
         <div class="btn-download-container">
-            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/expressway-s60.html" class="btn-download-png" target="_blank">📥 Open image in original size</a>
+            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/expressway-s60.html" class="btn-download-png" target="_blank">Open image in original size</a>
         </div>
     </div>
 
@@ -887,7 +889,7 @@ ul.bibliografia li:target {
         <img src="strategic-railway.png" alt="North–South Railway Strategic Axis" onclick="openLightbox(this)">
         <div class="map-caption"><strong style="font-style: normal;">Figure 3.</strong> <i>North–South Railway Strategic Axis</i></div>
         <div class="btn-download-container">
-            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/strategic-railway.html" class="btn-download-png" target="_blank">📥 Open image in original size</a>
+            <a href="https://sylwester1975.github.io/integrated-transport-master-plan-for-plock/strategic-railway.html" class="btn-download-png" target="_blank">Open image in original size</a>
         </div>
     </div>
 

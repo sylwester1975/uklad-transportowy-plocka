@@ -107,7 +107,7 @@
             margin-bottom: 0 !important;
         }
         .highlight-box strong {
-            color: #1a365d; !important;
+            color: #1a365d !important;
         }
         .toc-box {
             background-color: #f7fafc;
@@ -147,9 +147,9 @@
             transition: color 0.2s ease, text-decoration-color 0.2s ease;
         }
         .toc-box a:hover {
-            color: #1a365d !important;
+            color: #2563eb !important;
             text-decoration: underline !important;
-            text-decoration-color: #1a365d !important;
+            text-decoration-color: #2563eb !important;
         }
         .toc-box ul {
             list-style-type: disc !important;
@@ -206,34 +206,38 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #27374d; /* Systemowy grafit */
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             font-size: 0.85rem;
             font-weight: bold;
             padding: 8px 16px;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
-        }
-        .btn-download-png:hover {
-            background-color: #333333;
         }
         .btn-original {
             display: inline-block;
-            background-color: #1a365d;
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             padding: 8px 16px;
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
         }
-.btn-original:hover {
-    background-color: #27374d;
-}
+        .btn-original:hover, .btn-download-png:hover {
+            background-color: #2563eb !important; /* Królewski błękit po najechaniu myszką */
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        .btn-original:focus-visible, .btn-download-png:focus-visible {
+            outline: 3px solid #1a365d !important;
+            outline-offset: 3px !important;
+        }
         .lightbox {
             display: none;
             position: fixed;
@@ -262,7 +266,6 @@
             font-weight: bold;
             cursor: pointer;
         }
-
 html {
     scroll-behavior: smooth;
 }
@@ -285,7 +288,7 @@ html {
     z-index: 999;
 }
 .btn-to-top:hover {
-    background-color: #2b6cb0;
+    background-color: #2563eb;
     color: #f8f9fa !important; /* ZMIANA: Strzałka zachowuje kolor tła strony po najechaniu */
     transform: scale(1.05);
 }
@@ -328,16 +331,16 @@ html {
             width: 100%;
             text-align: left;
             font-family: inherit;
-            border: 2px solid #27374d;
+            border: 2px solid #1a365d;
         }
         .custom-table th, .custom-table td {
-            border: 1px solid #27374d;
+            border: 1px solid #1a365d;
             padding: 12px 10px;
             line-height: 1.5;
         }
         .custom-table th {
             background-color: #f2f2f2;
-            color: #27374d;
+            color: #1a365d;
             font-weight: bold;
         }
         .custom-table td strong {
@@ -575,7 +578,7 @@ ul.bibliografia li:target {
     </span>
     
     <!-- Podtytuł rozdziału (Poprawione literówki: awarii, Polskiej) -->
-    <span style="display: block; font-weight: bold; color: #27374d; font-size: 1.25rem;">
+    <span style="display: block; font-weight: bold; color: #333333; font-size: 1.25rem;">
         Koncepcja eliminacji ryzyka pojedynczego punktu awarii&nbsp;– <i>single point of failure</i>&nbsp;(SPoF) w&nbsp;surowcowym sercu Rzeczypospolitej Polskiej
     </span>
 </h2>
@@ -696,9 +699,9 @@ ul.bibliografia li:target {
         
         <div class="toc-title" style="margin-top: 25px; border-top: 1px dashed #cbd5e0; padding-top: 15px; font-weight: bold; color: #1a365d; font-size: 1.1rem;">WYKAZ RYSUNKÓW</div>
         <ul style="list-style-type: disc !important; padding-left: 20px !important; margin-top: 15px; margin-bottom: 0;">
-            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#mapa-1" style="color: #1a365d; text-decoration: none;">🗺️ <strong>Rysunek 1.</strong> Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</a></li>
-            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#mapa-2" style="color: #1a365d; text-decoration: none;">🗺️ <strong>Rysunek 2.</strong> Postulowany korytarz Drogi Ekspresowej S60</a></li>
-            <li style="margin-bottom: 0; list-style-type: disc !important; text-align: left;"><a href="#mapa-3" style="color: #1a365d; text-decoration: none;">🗺️ <strong>Rysunek 3.</strong> Kolejowa Oś Strategiczna Północ-Południe</a></li>
+            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#mapa-1" style="color: #1a365d; text-decoration: none;"> <strong>Rysunek 1.</strong> Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</a></li>
+            <li style="margin-bottom: 8px; list-style-type: disc !important; text-align: left;"><a href="#mapa-2" style="color: #1a365d; text-decoration: none;"> <strong>Rysunek 2.</strong> Postulowany korytarz Drogi Ekspresowej S60</a></li>
+            <li style="margin-bottom: 0; list-style-type: disc !important; text-align: left;"><a href="#mapa-3" style="color: #1a365d; text-decoration: none;"> <strong>Rysunek 3.</strong> Kolejowa Oś Strategiczna Północ-Południe</a></li>
         </ul>
     </div>
 
@@ -707,12 +710,12 @@ ul.bibliografia li:target {
     
     <!-- Przycisk PDF (Dopasowany optycznie) -->
     <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
-        📄 Pobierz Masterplan jako PDF
+         Pobierz Masterplan jako PDF
     </button>
     
     <!-- Przycisk Kopiowania Linku -->
     <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
-        🔗 Kopiuj link do Masterplanu
+         Kopiuj link do Masterplanu
     </button>
         
     <!-- Wersja Angielska po prawej (Poprawiony xmlns!) -->
@@ -731,7 +734,7 @@ ul.bibliografia li:target {
 </div>
 
     <!-- POPRAWIONY CIEMNY PROSTOKĄT (Pływający w rogu ekranu z płynną animacją) -->
-    <div id="toast-share" style="display: none;">🔗 Link do Masterplanu został skopiowany do schowka!</div>
+    <div id="toast-share" style="display: none;"> Link do Masterplanu został skopiowany do schowka!</div>
     
     <hr>
 
@@ -776,11 +779,11 @@ ul.bibliografia li:target {
 
     <div id="mapa-1" class="map-section">
         <img src="uklad-transportowy-plocka.png" alt="Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka" onclick="openLightbox(this)">
-        <div class="map-caption style="color: #1a365d;"><strong style="font-style: normal;">Rysunek 1.</strong> <i>Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</i></div>
+        <div class="map-caption style="color: #27374d;"><strong style="font-style: normal;">Rysunek 1.</strong> <i>Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</i></div>
         <!-- Zintegrowany, nowoczesny panel przycisków mapy -->
         <div class="btn-download-container" style="gap: 10px; flex-wrap: wrap;">
-            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/uklad-transportowy-plocka.html" class="btn-download-png" target="_blank">📥 Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
-            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=pl&gl=pl" class="btn-original" style="background-color: #27374d; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">🗺️ Zobacz rejon Płocka w&nbsp;Google Maps</a>
+            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/uklad-transportowy-plocka.html" class="btn-download-png" target="_blank">Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
+            <a href="https://google.com/maps/@52.5513703,19.7084473,13z/data=!3m1!1e3?hl=pl&gl=pl" class="btn-original" style="background-color: #1a365d; margin-top: 5px; border-radius: 4px; padding: 8px 16px; font-size: 0.85rem;" target="_blank">Zobacz rejon Płocka w&nbsp;Google Maps</a>
         </div>
     </div>
 <h3 id="wezel">2.4. Węzeł Multimodalny w&nbsp;centrum Polski</h3>
@@ -883,7 +886,7 @@ ul.bibliografia li:target {
         <div class="map-caption"><strong style="font-style: normal;">Rysunek 2.</strong> <i>Postulowany korytarz Drogi Ekspresowej S60</i></div>
         <!-- Nowoczesny grafitowy przycisk podglądu, wyśrodkowany i spójny stylistycznie -->
         <div class="btn-download-container">
-            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/droga-ekspresowa-s60.html" class="btn-download-png" target="_blank">📥 Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
+            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/droga-ekspresowa-s60.html" class="btn-download-png" target="_blank">Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
         </div>
     </div>
 
@@ -990,7 +993,7 @@ ul.bibliografia li:target {
         <div class="map-caption"><strong style="font-style: normal;">Rysunek 3.</strong> <i>Kolejowa Oś Strategiczna Północ-Południe</i></div>
         <!-- Nowoczesny grafitowy przycisk podglądu Rysunku 3 -->
         <div class="btn-download-container">
-            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/kolej-strategiczna.html" class="btn-download-png" target="_blank">📥 Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
+            <a href="https://sylwester1975.github.io/zintegrowany-transportowy-masterplan-dla-plocka/kolej-strategiczna.html" class="btn-download-png" target="_blank">Otwórz rysunek w&nbsp;oryginalnym rozmiarze</a>
         </div>
     </div>
 
